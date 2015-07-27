@@ -4,6 +4,8 @@ package com.concordia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class BatchTeamValidator {
     @Autowired
@@ -12,7 +14,7 @@ public class BatchTeamValidator {
     @Autowired
     HelperClass helperClass;
 
-    public boolean validateAllPossibleTeams(){
+    public boolean validateAllPossibleTeams() throws IOException {
         for (int i=0; i< factoryClass.getMaxNumberOfTeams()-(factoryClass.existingTeams.size()); i++) {
             factoryClass.generateRandomTeam();
         }

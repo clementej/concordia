@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
+import java.io.*;
+
 
 @Component
 public  class FactoryClass {
@@ -26,6 +28,19 @@ public  class FactoryClass {
     private  final int reasonableMaxNumberOfGoals=(five_hundred*2);
     private  final int reasonableMaxNumberOfBookins=five_hundred;
 
+    //String fileName = "/Users/clementearismendi/IdeaProjects/footballTeam/src/main/java/com/concordia/files/names";
+    //String fileLastName = "/Users/clementearismendi/IdeaProjects/footballTeam/src/main/java/com/concordia/files/lastNames";
+    String fileName = "../files/names";
+    String fileLastName = "../files/lastNames";
+
+
+    ArrayList<String> allNames = new ArrayList<String>();
+
+    ArrayList<String> allLastNames = new ArrayList<String>();
+
+    Random r = new Random();
+
+
     private  String firstName;
     private  String lastName;
     private  Integer age;
@@ -34,11 +49,11 @@ public  class FactoryClass {
     private  Position position;
     private StatisticsClass statisticsClass;
     private List<Team> previousTeamList;
-    int minFoundationYear=1950;
-    private int fistTrainerAge=(new GregorianCalendar().get(Calendar.YEAR))-minFoundationYear;
+    int minFoundationYear=1920;
+    private int fistTrainerAge=(new GregorianCalendar().get(Calendar.YEAR))- minFoundationYear;
     private Trainer firstRandomTrainer =null;
 
-    private Trainer getFirstRandomTrainer(){
+    private Trainer getFirstRandomTrainer() throws IOException {
         if (firstRandomTrainer ==null){
             firstRandomTrainer =new Trainer(generateRandomFisrtName(),generateRandomLastName(),fistTrainerAge,null,generateRandomAnnualSalary());
         }
@@ -47,7 +62,7 @@ public  class FactoryClass {
 
     Team firstRandomTeam=null;
 
-    private Team getFirstRandomTeam(){
+    private Team getFirstRandomTeam() throws IOException {
         if (firstRandomTeam==null){
             firstRandomTeam=new Team(generateRandomTeamName(),null,generatePlayersArray(twenty_two), generateRandomYearOfFoundation());
             firstRandomTeam.setYearOfFoundation(minFoundationYear);
@@ -64,7 +79,7 @@ public  class FactoryClass {
 
     List<Team> existingTeams=new ArrayList<Team>();
 
-    public Player[] generatePlayersArray(int length){
+    public Player[] generatePlayersArray(int length) throws IOException {
         if (length <1) return null;
         Player[] playerArray=new Player[length];
         for (int i=0;i<playerArray.length;i++)
@@ -72,7 +87,7 @@ public  class FactoryClass {
         return playerArray;
     }
 
-    public Team generateRandomTeam(){
+    public Team generateRandomTeam() throws IOException {
         if (existingTeams.size()>=teamNameList.length) throw new RuntimeException("Thist is the limit number teams");
         Team team=null;
         if (existingTeams.size()<1){
@@ -87,7 +102,7 @@ public  class FactoryClass {
 
     private Team previousTeamTemp;
 
-    public Trainer generateRandomTrainer(){
+    public Trainer generateRandomTrainer() throws IOException {
         Trainer trainer;
         firstName=generateRandomFisrtName();
         lastName=generateRandomLastName();
@@ -120,7 +135,7 @@ public  class FactoryClass {
         return teamTemp;
     }
 
-    public  Player generateRandomPlayer(){
+    public  Player generateRandomPlayer() throws IOException {
         Player player;
         firstName=generateRandomFisrtName();
         lastName=generateRandomLastName();
@@ -135,22 +150,46 @@ public  class FactoryClass {
 
     private  Random random=new Random();
 
-    private  String [] firstNameList={"Alex","Bob","Carlos","Dany","Eduard","Fernando","Gabriel","Henry","Ismael","Joe","Kevin","Leo","Martin","Norman","Oscar","Peter","Robert","Samuel","Teo"};
+    private  String generateRandomFisrtName() throws IOException {
 
-    private  String generateRandomFisrtName(){
-        return firstNameList[random.nextInt(firstNameList.length)];
+        BufferedReader in = new BufferedReader(new FileReader(fileName));
+        while (true) {
+            if (!(in.ready())) {
+                break;
+            }
+            allNames.add( in.readLine() );
+        }
+        in.close();
+
+        String randomName = allNames.get(r.nextInt(allNames.size()));
+        return randomName;
+
     }
 
-    private  String [] lastNameList={"Armstrong","Bradley","Collins","Dixon","Evans","Fox","Green","Harris","James","King","Lorens","Martinez","Brooks","Garner","Cabrera","Alvarez","Clemente","Ellis","Dawson","Cooper","Clark","Walsh"};
-    private  String generateRandomLastName(){
-        return lastNameList[random.nextInt(lastNameList.length)];
+
+    private  String generateRandomLastName() throws IOException {
+
+        BufferedReader in = new BufferedReader(new FileReader(fileLastName));
+        while (true) {
+            if (!(in.ready())) {
+                break;
+            }
+            allLastNames.add( in.readLine() );
+        }
+        in.close();
+
+        String randomLastName = allLastNames.get(r.nextInt(allLastNames.size()));
+        return randomLastName;
+
     }
 
     private int generateRandomPlayerAge(){
+
         return twenty + random.nextInt(3);
     }
 
     private int generateRandomTrainerAge(){
+
         return (twenty*2) + random.nextInt(twenty*2);
     }
 
@@ -179,6 +218,7 @@ public  class FactoryClass {
     }
 
     private  Position generateRandomPosition(){
+
         return Position.values()[random.nextInt(Position.values().length)];
     }
 

@@ -22,42 +22,52 @@ public class Trainer {
     }
 
     public String getFirstName() {
+
         return firstName;
     }
 
     public void setFirstName(String firstName) {
+
         this.firstName = firstName;
     }
 
     public String getLastName() {
+
         return lastName;
     }
 
     public void setLastName(String lastName) {
+
         this.lastName = lastName;
     }
 
     public Integer getAge() {
+
         return age;
     }
 
     public void setAge(Integer age) {
+
         this.age = age;
     }
 
     public List<Team> getPreviousTeamList() {
+
         return previousTeamList;
     }
 
     public void setPreviousTeamList(List<Team> previousTeamList) {
+
         this.previousTeamList = previousTeamList;
     }
 
     public CurrencyClass getAnnualSalary() {
+
         return annualSalary;
     }
 
     public void setAnnualSalary(CurrencyClass annualSalary) {
+
         this.annualSalary = annualSalary;
     }
 

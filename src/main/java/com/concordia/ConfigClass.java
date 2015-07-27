@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import java.io.IOException;
+
 @Configuration
 @EnableAspectJAutoProxy
 public class ConfigClass {
@@ -20,31 +22,31 @@ public class ConfigClass {
     }
 
     @Bean(name = "player")
-    Player getPlayer(){
+    Player getPlayer() throws IOException {
 
         return factoryClass.generateRandomPlayer();
     }
 
     @Bean(name="team")
-    Team getTeam(){
+    Team getTeam() throws IOException {
 
         return factoryClass.generateRandomTeam();
     }
 
     @Bean(name="team2")
-    Team getTeam2(){
+    Team getTeam2() throws IOException {
 
         return factoryClass.generateRandomTeam();
     }
 
     @Bean(name="team3")
-    Team getTeam3(){
+    Team getTeam3() throws IOException {
 
         return factoryClass.generateRandomTeam();
     }
 
     @Bean(name="trainer")
-    Trainer getTrainer(){
+    Trainer getTrainer() throws IOException {
 
         return factoryClass.generateRandomTrainer();
     }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.IOException;
+
 
 /**
  * Unit test for simple App.
@@ -43,19 +45,19 @@ public class AppTest
     FactoryClass factoryClass;
 
     @Test
-    public void playersAreValid() {
+    public void playersAreValid() throws IOException {
         Assert.assertTrue(helperClass.validatePlayer(player));
         Assert.assertTrue(helperClass.validatePlayer(factoryClass.generateRandomPlayer()));
     }
 
     @Test
-    public void trainersAreValid() {
+    public void trainersAreValid() throws IOException {
         Assert.assertTrue(helperClass.validateTrainer(trainer));
         Assert.assertTrue(helperClass.validateTrainer(factoryClass.generateRandomTrainer()));
     }
 
     @Test
-    public void teamsAreValid() {
+    public void teamsAreValid() throws IOException {
         Assert.assertTrue(helperClass.validateTeam(team));
         Assert.assertTrue(helperClass.validateTeam(team2));
         Assert.assertTrue(helperClass.validateTeam(team3));
