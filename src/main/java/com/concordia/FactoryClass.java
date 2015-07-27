@@ -28,10 +28,10 @@ public  class FactoryClass {
     private  final int reasonableMaxNumberOfGoals=(five_hundred*2);
     private  final int reasonableMaxNumberOfBookins=five_hundred;
 
-    //String fileName = "/Users/clementearismendi/IdeaProjects/footballTeam/src/main/java/com/concordia/files/names";
-    //String fileLastName = "/Users/clementearismendi/IdeaProjects/footballTeam/src/main/java/com/concordia/files/lastNames";
-    String fileName = "../files/names";
-    String fileLastName = "../files/lastNames";
+    String fileName = "/Users/clementearismendi/IdeaProjects/footballTeam/src/main/java/files/names";
+    String fileLastName = "/Users/clementearismendi/IdeaProjects/footballTeam/src/main/java/files/lastNames";
+    //String fileName = "./files/names";
+    //String fileLastName = "./files/lastNames";
 
 
     ArrayList<String> allNames = new ArrayList<String>();
