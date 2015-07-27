@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.concordia.AppTest" time="3.273" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.concordia.AppTest" time="1.971" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="14.1.4"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -13,12 +13,12 @@
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="idea.launcher.port" value="7532"/>
+    <property name="idea.launcher.port" value="7536"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/clementearismendi/IdeaProjects/javaV"/>
+    <property name="user.dir" value="/Users/clementearismendi/IdeaProjects/footballTeam"/>
     <property name="java.runtime.version" value="1.8.0_25-b17"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/endorsed"/>
@@ -65,7 +65,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.concordia.AppTest" name="playersAreValid" time="0.032"/>
-  <testcase classname="com.concordia.AppTest" name="trainersAreValid" time="0"/>
-  <testcase classname="com.concordia.AppTest" name="teamsAreValid" time="0.414"/>
+  <testcase classname="com.concordia.AppTest" name="playersAreValid" time="0.045"/>
+  <testcase classname="com.concordia.AppTest" name="trainersAreValid" time="0.001"/>
+  <testcase classname="com.concordia.AppTest" name="teamsAreValid" time="0.39"/>
 </testsuite>

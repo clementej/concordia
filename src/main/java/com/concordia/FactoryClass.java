@@ -49,7 +49,7 @@ public  class FactoryClass {
 
     private Team getFirstRandomTeam(){
         if (firstRandomTeam==null){
-            firstRandomTeam=new Team(generateRandomTeamName(),null,generatePlayersArray(22), generateRandomYearOfFoundation());
+            firstRandomTeam=new Team(generateRandomTeamName(),null,generatePlayersArray(twenty_two), generateRandomYearOfFoundation());
             firstRandomTeam.setYearOfFoundation(minFoundationYear);
             firstRandomTeam.setTrainer(getFirstRandomTrainer());
             List<Team> firstTrainerPreviousTeamList=new ArrayList<Team>();
@@ -175,7 +175,7 @@ public  class FactoryClass {
     }
 
     private CurrencyClass generateRandomAnnualSalary(){
-        return new CurrencyClass(new BigDecimal((five_hundred_twice*5)+random.nextInt(ten)*ten),Currency.getInstance(Locale.CANADA), RoundingMode.CEILING);
+        return new CurrencyClass(new BigDecimal((five_hundred_twice*5)+random.nextInt(ten)*ten),Currency.getInstance(Locale.US), RoundingMode.CEILING);
     }
 
     private  Position generateRandomPosition(){
@@ -191,9 +191,7 @@ public  class FactoryClass {
     public int getMaxNumberOfTeams(){
         return teamNameList.length;
     }
-    String[] teamNameList={"Toronto FC","Vancouver Whitecaps FC","Montreal Impact","FC Edmont","Otawa Fury","FC Montreal","Toronto FC II",
-            "Whitecaps FC II","ANB Futbol","Durham United FC","Kingston Clippers","Master's FA","North Mississauga SC","Oakville Blue Devils","ProStars FC","Sanjaxx Lions","Toronto FC Academy","Sigma FC",
-            "Vaughan Azzurri","Windsor Stars","Woodbridge Strikers SC","CS Mon-Royal Outremont","FC Gatineau ","FC L'Assomption-Lanaudiére","AS Blainville","Lakeshore","Ottawa Fury Academy","CS Longueuil "};
+    String[] teamNameList={"Buffalo Bills", "Cincinnati Bengals", "Cleveland Browns", "Denver Broncos", "Houston Texans", "Indianapolis Colts" , "Jacksonville Jaguars" , "Kansas City Chiefs", "Miami Dolphins", "New England Patriots" , "New York Jets", "Oakland Raiders" , "Pittsburgh Steelers" , "San Diego Chargers" , "Tennessee Titans", "Arizona Cardinals", "Atlanta Falcons", "Carolina Panthers" , "Chicago Bears", "Dallas Cowboys" , "Detroit Lions", "Green Bay Packers" , "Minnesota Vikings" , "New Orleans Saints" , "New York Giants" , "Philadelphia Eagles" , "San Francisco 49ers" , "Seattle Seahawks" , "St. Louis Rams", "Tampa Bay Buccaneers" , "Washington Redskins"};
 
     public String generateRandomTeamName(){
         if (existingTeams.size()>=teamNameList.length) throw new RuntimeException("No more random teams can be created");

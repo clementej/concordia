@@ -1,5 +1,8 @@
 package com.concordia;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class StatisticsClass {
     private Integer numberOfGoals;
     private Integer numberOfBookings;
