@@ -30,6 +30,8 @@ public  class FactoryClass {
 
     String fileName = "/Users/clementearismendi/IdeaProjects/footballTeam/src/main/java/files/names";
     String fileLastName = "/Users/clementearismendi/IdeaProjects/footballTeam/src/main/java/files/lastNames";
+
+
     //String fileName = "./files/names";
     //String fileLastName = "./files/lastNames";
 
@@ -152,6 +154,7 @@ public  class FactoryClass {
 
     private  String generateRandomFisrtName() throws IOException {
 
+
         BufferedReader in = new BufferedReader(new FileReader(fileName));
         while (true) {
             if (!(in.ready())) {
@@ -162,6 +165,9 @@ public  class FactoryClass {
         in.close();
 
         String randomName = allNames.get(r.nextInt(allNames.size()));
+
+//        URL url = getClass().getResource("names");
+//        File file = new File(url.getPath());
         return randomName;
 
     }
@@ -234,7 +240,7 @@ public  class FactoryClass {
     String[] teamNameList={"Buffalo Bills", "Cincinnati Bengals", "Cleveland Browns", "Denver Broncos", "Houston Texans", "Indianapolis Colts" , "Jacksonville Jaguars" , "Kansas City Chiefs", "Miami Dolphins", "New England Patriots" , "New York Jets", "Oakland Raiders" , "Pittsburgh Steelers" , "San Diego Chargers" , "Tennessee Titans", "Arizona Cardinals", "Atlanta Falcons", "Carolina Panthers" , "Chicago Bears", "Dallas Cowboys" , "Detroit Lions", "Green Bay Packers" , "Minnesota Vikings" , "New Orleans Saints" , "New York Giants" , "Philadelphia Eagles" , "San Francisco 49ers" , "Seattle Seahawks" , "St. Louis Rams", "Tampa Bay Buccaneers" , "Washington Redskins"};
 
     public String generateRandomTeamName(){
-        if (existingTeams.size()>=teamNameList.length) throw new RuntimeException("No more random teams can be created");
+        if (existingTeams.size()>=teamNameList.length) throw new RuntimeException("No more room for team");
         List<String> existingTeamsNameListTemp=new LinkedList<String>();
         for (Team currentExistingTeam: existingTeams){
             existingTeamsNameListTemp.add(currentExistingTeam.getName());
